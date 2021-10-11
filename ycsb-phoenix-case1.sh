@@ -67,29 +67,28 @@ cd "${YCSB_HOME}"
 #hbase org.apache.hadoop.hbase.util.RegionSplitter ${HBASE_TABLE} HexStringSplit \
 #  -c ${HBASE_RC} -f ${HBASE_CFM} >> $LOG
 # HBase recommends (10 * number of regionservers)
-phoenix.properties
+#phoenix.properties
 
-db.driver=org.apache.phoenix.jdbc.PhoenixDriver
-db.url=jdbc:phoenix:my_zk_hosts:2181:/hbase
-jdbc.autocommit=false
-db.batchsize=1000
-
-
-
-phoenix-thin.properties
-
-db.driver=org.apache.phoenix.queryserver.client.Driver
-db.url=jdbc:phoenix:thin:http://my_pqs_host:8765;serialization=PROTOBUF
-jdbc.autocommit=false
-db.batchsize=1000
-jdbc.batchupdateapi=true
+#db.driver=org.apache.phoenix.jdbc.PhoenixDriver
+#db.url=jdbc:phoenix:mtrdlkprd01.corp.bankbtpn.co.id,mtrdlkprd03.corp.bankbtpn.co.id,mtrdlkprd05.corp.bankbtpn.co.id:2181:/hbase
+#jdbc.autocommit=false
+#db.batchsize=1000
 
 
-create table usertable(YCSB_KEY VARCHAR(255) NOT NULL PRIMARY KEY, FIELD0 VARCHAR, FIELD1 VARCHAR, FIELD2 VARCHAR, FIELD3 VARCHAR,FIELD4 VARCHAR, FIELD5 VARCHAR,FIELD6 VARCHAR, FIELD7 VARCHAR,FIELD8 VARCHAR, FIELD9 VARCHAR) SALT_BUCKETS=15;
+#phoenix-thin.properties
 
-create index idx1 on usertable(field0, field1) include(field8, field9);
+#db.driver=org.apache.phoenix.queryserver.client.Driver
+#db.url=jdbc:phoenix:thin:http://my_pqs_host:8765;serialization=PROTOBUF
+#jdbc.autocommit=false
+#db.batchsize=1000
+#jdbc.batchupdateapi=true
 
-create index idx2 on usertable(field2, field3) include(field8, field9);
+
+#create table usertable(YCSB_KEY VARCHAR(255) NOT NULL PRIMARY KEY, FIELD0 VARCHAR, FIELD1 VARCHAR, FIELD2 VARCHAR, FIELD3 VARCHAR,FIELD4 VARCHAR, FIELD5 VARCHAR,FIELD6 VARCHAR, FIELD7 VARCHAR,FIELD8 VARCHAR, FIELD9 VARCHAR) SALT_BUCKETS=15;
+
+#create index idx1 on usertable(field0, field1) include(field8, field9);
+
+#create index idx2 on usertable(field2, field3) include(field8, field9);
 
 
 cp ${PHOENIX_HOME}/phoenix-${PHOENIX_VERSION}-client.jar jdbc-binding/lib
