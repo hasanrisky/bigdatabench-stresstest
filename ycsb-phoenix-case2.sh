@@ -42,7 +42,7 @@ THREADS=15
 # Maximum execution time on seconds ( 15 minutes )
 MAX_TIME_EXE=900
 # output Result file
-RESULT_OUT=~/StressTest-YCSB_Result-Phoenix-Case1
+RESULT_OUT=~/StressTest-YCSB_Result-Phoenix-Case2
 
 WORKLOAD_LISTS=("workloada" "workloadb" "workloadc" "workloadd" "workloade" "workloadf")
 
@@ -68,8 +68,6 @@ cd "${YCSB_HOME}"
 #hbase org.apache.hadoop.hbase.util.RegionSplitter ${HBASE_TABLE} HexStringSplit \
 #  -c ${HBASE_RC} -f ${HBASE_CFM} >> $LOG
 # HBase recommends (10 * number of regionservers)
-
-
 #phoenix.properties
 
 #db.driver=org.apache.phoenix.jdbc.PhoenixDriver
